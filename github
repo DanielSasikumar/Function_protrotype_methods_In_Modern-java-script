@@ -1,0 +1,36 @@
+// Function prototype methods 
+const print = new Function('firstname', 'lastname', '')
+
+console.log(print('veera', 'raj'));
+
+function greetname(firstName, lastName){
+    return `Hello ${firstName} ${lastName},`
+}
+
+// console.log(greetname('daniel', 'rajj'));
+// ____________
+
+// 1. Function.Prototype.call()
+// We can give input directly into the function single or double quotes
+const call = greetname.call(null, 'danisha')
+console.log(call);
+// __________________
+// 2. Function.Prototype.apply()
+// In apply function we must give input inside the arrays only[]
+const apply = greetname.apply(null, ['Dani', 'Raj'])
+console.log(apply);
+
+// Finding the min and max value in an array functio 
+const list = [1, 2, 3, 5, 9, 10, 15, 25, 6]
+console.log(Math.min(1, 2, 3, 5, 9, 10, 15, 25, 6));
+console.log(Math.max(1, 2, 3, 5, 9, 10, 15, 25, 6));
+// Instead of doing like this we can add the array elments with the help of apply() function
+console.log('using apply() method', Math.max.apply(null,list));
+// // __________
+
+// 3. Function.Prototype.bind()
+// console.log('using bind() method', Math.min.bind(null, Number));
+// we have give the input as same as the normal one because apply function does not bind the input as other 
+// function
+const bind = Math.max.bind(null, ...list)
+console.log('using bind()', bind());
